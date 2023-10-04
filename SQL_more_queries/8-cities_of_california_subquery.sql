@@ -1,12 +1,5 @@
--- USE hbtn_0d_usa;
--- SELECT * FROM states;
--- ALTER TABLE cities;
--- DROP COLUMN state_id;
-SELECT * FROM cities WHERE state_id = 1 AND name = 'Carlifornia';
-
-
--- SELECT * FROM cities
--- WHERE state_id = (
---     SELECT id FROM states
---     WHERE name = 'California'
--- )
+SELECT cities.id, cities.name
+FROM cities, states
+WHERE cities.state_id = states.id
+  AND states.name = 'California'
+ORDER BY cities.id ASC;
